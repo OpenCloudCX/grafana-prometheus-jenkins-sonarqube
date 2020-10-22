@@ -1,0 +1,41 @@
+version: "3"
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  grafana:
+    build: grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    ports:
+      - 3000:3000
+
+  jenkins:
+    build: jenkins
+    container_name: jenkins
+    environment:
+      JENKINS_HOST_HOME: "/data/jenkins"
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+      - "50000:50000"
+
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - ./sonarqube:/opt/sonarqube/extensions/plugins/
+    ports:
+      - "9000:9000"
+networks:
+  default:
