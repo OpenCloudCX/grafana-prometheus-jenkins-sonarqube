@@ -16,7 +16,7 @@ services:
     image: gboie/opencloudcx-jenkins
     container_name: jenkins
     ports:
-      - "8080:8080"
+      - "8000:8080"
       - "5000:5000"
       - "50000:50000"
 
@@ -24,6 +24,6 @@ services:
     image: gboie/opencloudcx-sonarqube
     container_name: sonarqube
     ports:
-      - "9000:9000"
+      - "9001:9000"
 networks:
   default:

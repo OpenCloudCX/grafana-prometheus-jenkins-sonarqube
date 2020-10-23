@@ -7,7 +7,7 @@
 - Lighter image. 
 - Removed some of the plugins and rebuild image.
 ##### URL:
-http://localhost:8080
+http://localhost:8000
 
 ![Jenkins](/images/jenkins.png)
 
@@ -17,7 +17,7 @@ http://localhost:8080
 - User/Passwordd: admin/admin
 - Prometheus Exporter: https://github.com/madhawadias/sonarqube-prometheus-exporter
 ##### URL:
-http://localhost:9000
+http://localhost:9001
 
 ![Sonarqube](/images/sonarqube.png)
 
@@ -40,3 +40,14 @@ http://localhost:9090
 http://localhost:3000
 
 ![Grafana](/images/grafana.png)
+
+
+### Combined Port List
+- Jenkins 8000
+- Sonarqube 9001
+- Prometheus 9090
+- Grafana 3000
+##### Spinnaker Ports
+![Spinnaker Ports](/images/spinnakerports.png)
+
+
