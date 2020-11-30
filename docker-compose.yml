@@ -25,5 +25,16 @@ services:
     container_name: sonarqube
     ports:
       - "9001:9000"
+
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    environment:
+      - INFLUXDB_ADMIN_USER_PASSWORD=password123
+      - INFLUXDB_USER=my_user
+      - INFLUXDB_USER_PASSWORD=my_password
+      - INFLUXDB_DB=my_database
+      - INFLUXDB_HTTP_READINESS_TIMEOUT=30
+
 networks:
   default:

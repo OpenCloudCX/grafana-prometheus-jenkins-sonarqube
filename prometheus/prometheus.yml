@@ -11,3 +11,11 @@ scrape_configs:
   metrics_path: '/api/prometheus/metrics'
   static_configs:
     - targets: ['sonarqube:9001']
+- job_name: 'spinnaker'
+  metrics_path: '/prometheus_metrics'
+  static_configs:
+    - targets: ['spinnaker:8008']
+remote_write:
+  - url: "http://bitnami-influxdb:8086/api/v1/prom/write?db=prometheus&u=prometheus&p=prometheus"
+remote_read:
+  - url: "http://bitnami-influxdb:8086/api/v1/prom/read?db=prometheus&u=prometheus&p=prometheus"
