@@ -1,40 +1,16 @@
 version: "3"
 services:
   prometheus:
-    image: gboie/opencloudcx-prometheus
+    image: opencloudcx/opencloudcx-prometheus
     container_name: prometheus
     ports:
       - 9090:9090
 
   grafana:
-    image: gboie/opencloudcx-grafana
+    image: opencloudcx/opencloudcx-grafana
     container_name: grafana
     ports:
       - 3000:3000
-
-  jenkins:
-    image: gboie/opencloudcx-jenkins
-    container_name: jenkins
-    ports:
-      - "8000:8080"
-      - "5000:5000"
-      - "50000:50000"
-
-  sonarqube:
-    image: gboie/opencloudcx-sonarqube
-    container_name: sonarqube
-    ports:
-      - "9001:9000"
-
-  influxdb:
-    image: influxdb
-    container_name: influxdb
-    environment:
-      - INFLUXDB_ADMIN_USER_PASSWORD=password123
-      - INFLUXDB_USER=my_user
-      - INFLUXDB_USER_PASSWORD=my_password
-      - INFLUXDB_DB=my_database
-      - INFLUXDB_HTTP_READINESS_TIMEOUT=30
 
 networks:
   default:

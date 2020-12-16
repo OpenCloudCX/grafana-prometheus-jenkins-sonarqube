@@ -6,7 +6,7 @@ scrape_configs:
 - job_name: 'jenkins'
   metrics_path: '/prometheus/'
   static_configs:
-    - targets: ['jenkins:8000']
+    - targets: ['100.25.48.203']
 - job_name: 'sonarqube'
   metrics_path: '/api/prometheus/metrics'
   static_configs:
